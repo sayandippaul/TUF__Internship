@@ -55,8 +55,10 @@ var [carddetails, setcarddetails] = useState([]);
 
 //   }
 // ];
+// var url=`http://localhost:3001`;
+var url=`https://tuf-internship.onrender.com`;
 function getcards(){
-  fetch('http://localhost:3001/api/flashcards')
+  fetch(url+'/api/flashcards')
   .then((response) => response.json())
   .then((data) => {
     console.log('Success:', data);
