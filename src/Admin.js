@@ -53,6 +53,8 @@ const Admin = () => {
 var [cards, setcards] = useState([]);
 var [carddetails, setcarddetails] = useState([]);
 var[nowpage,setnowpage]=useState(0);
+// var url=`http://localhost:3001`;
+var url=`https://tuf-internship.onrender.com`;
 
 function previous(){
   if(carddetails.length==0) return;
@@ -116,7 +118,7 @@ function previous(){
     // setcards(newcard);
     // nowpage=carddetails.length-1;
     // setnowpage(nowpage);
-    fetch('http://localhost:3001/api/flashcards', {
+    fetch(url+'/api/flashcards', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -138,7 +140,7 @@ function previous(){
 
   }
   function getcards(){
-    fetch('http://localhost:3001/api/flashcards')
+    fetch(url+'/api/flashcards')
     .then((response) => response.json())
     .then((data) => {
       console.log('Success:', data);
@@ -173,7 +175,7 @@ function previous(){
   }
   function deletecard(qid){
     // var qid=cards.qid;
-    fetch('http://localhost:3001/api/flashcards/'+qid, {
+    fetch(url+'/api/flashcards/'+qid, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -197,7 +199,7 @@ function previous(){
       alert("Please Fill All The Fields");
       return;
     }
-    fetch('http://localhost:3001/api/flashcards/'+qid, {
+    fetch(url+'/api/flashcards/'+qid, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
